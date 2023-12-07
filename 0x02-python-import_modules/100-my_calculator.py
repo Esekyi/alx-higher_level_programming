@@ -3,7 +3,7 @@
 from calculator_1 import add, sub, mul, div
 from sys import argv, exit
 
-if __name__ == "__name__":
+if __name__ == "__main__":
 
     if len(argv) != 4:
         print(f"Usage: {argv[0]} <a> <operator> <b>")
