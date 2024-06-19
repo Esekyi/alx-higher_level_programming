@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/node
 const args = process.argv;
 const numArgs = args.length;
 console.log(numArgs);
