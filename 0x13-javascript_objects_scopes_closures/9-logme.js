@@ -7,4 +7,3 @@ exports.logMe = function (item) {
   count++;
 };
 
-module.exports = exports.logMe;
