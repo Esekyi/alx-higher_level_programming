@@ -26,9 +26,9 @@ if __name__ == "__main__":
     cur.execute(
         "SELECT id, name FROM states WHERE name LIKE %s ORDER BY id ASC",
         (name+'%',))
-    rows = cur.fetchall()
+    print_rows = cur.fetchall()
 
-    for row in rows:
+    for row in print_rows:
         print(row)
 
     cur.close()
