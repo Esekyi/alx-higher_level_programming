@@ -22,7 +22,7 @@ if __name__ == "__main__":
                          user=user, passwd=password, db=db_name)
     cur = db.cursor()
     cur.execute(
-        "SELECT id, name FROM states WHERE name LIKE '{}%' ORDER BY id ASC"
+        "SELECT id, name FROM states WHERE name LIKE '{}' ORDER BY id ASC"
         .format(name))
     rows = cur.fetchall()
 
