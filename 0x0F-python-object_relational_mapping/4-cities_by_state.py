@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-
+"""
+Python script that lists all cities from the database hbtn_0e_4_usa.
+This script takes in 3 arguments: the username, password, and database name.
+"""
 import MySQLdb
 import sys
 
