@@ -20,11 +20,9 @@ if __name__ == "__main__":
 
     engine = create_engine(
         'mysql+mysqldb://{}:{}@localhost:3306/{}'.format(user, password, db_name))
-    Base.metadata.create_all(engine)
+
     Session = sessionmaker(bind=engine)
     session = Session()
-    states = session.query(State).order_by(State.id).all()
-    session = session()
 
     for instance in session.query(State).order_by(State.id).all():
         print("{0}: {1}".format(instance.id, instance.name))
