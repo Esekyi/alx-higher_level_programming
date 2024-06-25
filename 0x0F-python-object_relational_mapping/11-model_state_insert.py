@@ -24,10 +24,11 @@ if __name__ == "__main__":
                            .format(user, password, db_name),
                            pool_pre_ping=True)
     Base.metadata.create_all(engine)
+
     Session = sessionmaker(bind=engine)
     session = Session()
     insert_state = State(name="Louisiana")
     session.add(insert_state)
     session.commit()
-    print("{}".format(insert_state.id))
+    print(insert_state.id)
     session.close()
