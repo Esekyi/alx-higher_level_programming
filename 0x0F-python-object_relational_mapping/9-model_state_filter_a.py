@@ -28,7 +28,7 @@ if __name__ == "__main__":
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
-    state = session.query(State).filter_by(State.name.contains('a'))
+    state = session.query(State).filter(State.name.contains('a'))
     if state is not None:
         for instance in state:
             print("{0}: {1}".format(instance.id, instance.name))
