@@ -23,7 +23,7 @@ if __name__ == "__main__":
     state_name = sys.argv[4]
 
     engine = create_engine(
-        'mysql+mysqldb://{}:{}@localhost:3306/{}'
+        'mysql+mysqldb://{}:{}@localhost/{}'
         .format(user, password, db_name),
         pool_pre_ping=True)
     Base.metadata.create_all(engine)
@@ -31,7 +31,7 @@ if __name__ == "__main__":
     session = Session()
     state_query = session.query(State).filter(State.name == state_name).first()
     if state_query is not None:
-        print("{}".format(state_query.id))
+        print("{0}".format(state_query.id))
     else:
         print("Not found")
-    session.close()
+    # session.close()

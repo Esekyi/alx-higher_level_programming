@@ -23,7 +23,7 @@ if __name__ == "__main__":
     db_name = sys.argv[3]
 
     engine = create_engine(
-        'mysql+mysqldb://{}:{}@localhost:3306/{}'
+        'mysql+mysqldb://{}:{}@localhost/{}'
         .format(user, password, db_name), pool_pre_ping=True)
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
@@ -32,4 +32,4 @@ if __name__ == "__main__":
     if state is not None:
         for instance in state:
             print("{0}: {1}".format(instance.id, instance.name))
-    session.close()
+    # session.close()
