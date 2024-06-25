@@ -34,4 +34,4 @@ if __name__ == "__main__":
         print("{0}".format(state_query.id))
     else:
         print("Not found")
-    # session.close()
+    session.close()
