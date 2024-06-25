@@ -2,7 +2,8 @@
 """
 Python Script that adds the State
 object “Louisiana” to the database hbtn_0e_6_usa
-it takes 3 arguments: mysql username, mysql password and database name
+it takes 3 arguments: mysql username, mysql password
+and database name
 """
 
 import sys
@@ -25,8 +26,8 @@ if __name__ == "__main__":
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
-    new_state = State(name="Louisiana")
-    session.add(new_state)
+    insert_state = State(name="Louisiana")
+    session.add(insert_state)
     session.commit()
-    print(new_state.id)
+    print("{}".format(insert_state.id))
     session.close()
