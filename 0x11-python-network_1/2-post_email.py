@@ -23,4 +23,5 @@ if __name__ == "__main__":
     req = urllib.request.Request(url, data, method='POST')
     with urllib.request.urlopen(req) as response:
         html = response.read()
-        print(html.decode('utf-8'))
+        # print(html.decode('utf-8'))
+        print("Your email is: {}".format(values['email']))
