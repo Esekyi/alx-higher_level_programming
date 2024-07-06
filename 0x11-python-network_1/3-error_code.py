@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """Python script, takes in a URL, sends a request
 and displays the body of the response in utf-8
 """
