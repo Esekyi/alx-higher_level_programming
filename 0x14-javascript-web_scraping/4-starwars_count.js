@@ -1,8 +1,8 @@
-#!/usr/bin/node
+#!/usr/bin/env node
 
 const request = require('request');
 const url = process.argv[2];
-// const wedgeAntilles = 18;
+const wedgeAntilles = 18;
 // const characterUrl = 'https://swapi-api.alx-tools.com/api/people/1/';
 
 request(url, (error, response, body) => {
@@ -10,6 +10,9 @@ request(url, (error, response, body) => {
     console.error(error);
   } else {
     const data = JSON.parse(body);
-    console.log(data.results);
+    const movies = data.results;
+    const count = movies.filter(movie =>
+      movie.characters.some(character => character.includes(`/api/people/${wedgeAntilles}/`)));
+    console.log(count.length);
   }
 });
