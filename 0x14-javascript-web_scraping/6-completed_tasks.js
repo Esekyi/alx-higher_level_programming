@@ -9,11 +9,11 @@ request(url, (error, response, body) => {
   } else {
     const data = JSON.parse(body);
     const completedTasks = {};
-	  data.forEach((item) => {
+    data.forEach((item) => {
       if (item.completed) {
-		  if (!completedTasks[item.userId]) {
-		    completedTasks[item.userId] = 0;
-		  }
+        if (!completedTasks[item.userId]) {
+          completedTasks[item.userId] = 0;
+        }
         completedTasks[item.userId]++;
       }
     });
