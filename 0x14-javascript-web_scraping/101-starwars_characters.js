@@ -1,4 +1,4 @@
-#!/usr/bin/node
+#!/usr/bin/env node
 
 const request = require('request');
 const movieId = process.argv[2];
@@ -9,18 +9,26 @@ const movieUrl = `${baseUrl}films/${movieId}`;
 request(movieUrl, (error, response, body) => {
   if (error) {
     console.error(error);
-  } else {
-    const movieData = JSON.parse(body);
-    const characters = movieData.characters;
-    characters.forEach((characterUrl) => {
-      request(characterUrl, (error, response, body) => {
-        if (error) {
-          console.error(error);
-          return;
-        }
-        const characterData = JSON.parse(body);
-        console.log(characterData.name);
-      });
-    });
   }
+  const movieData = JSON.parse(body);
+  const characters = movieData.characters;
+  const fetchCharacter = (url, callback) => {
+    request(url, (error, response, body) => {
+      if (error) {
+        console.error(error);
+        return;
+      }
+
+      const characterData = JSON.parse(body);
+      callback(characterData.name);
+    });
+  };
+  const printCharacters = (index) => {
+    if (index >= characters.length) return;
+    fetchCharacter(characters[index], (name) => {
+      console.log(name);
+      printCharacters(index + 1);
+    });
+  };
+  printCharacters(0);
 });
